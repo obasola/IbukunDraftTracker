@@ -3,6 +3,7 @@ package net.ibukun.ubdrafted.domain.entity;
 
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "Pick")
@@ -21,6 +22,15 @@ public class Pick {
 
     @Column(name = "selection_number")
     private Integer selectionNumber;
+
+    @Column(name = "selection_year")
+    private String selectionYear;
+
+    @Column(name = "selection_pick_from")
+    private String selectionPickFrom;
+
+    @Column(name = "selection_pick_to")
+    private String selectionPickTo;
 
     public Integer getId() {
         return id;
@@ -54,4 +64,27 @@ public class Pick {
         this.selectionNumber = selectionNumber;
     }
 
+    public String getSelectionYear() {
+        return selectionYear;
+    }
+
+    public void setSelectionYear(String selectionYear) {
+        this.selectionYear = selectionYear;
+    }
+
+    public String getSelectionPickFrom() {
+        return selectionPickFrom;
+    }
+
+    public void setSelectionPickFrom(String selectionPickFrom) {
+        this.selectionPickFrom = selectionPickFrom;
+    }
+
+    public String getSelectionPickTo() {
+        return selectionPickTo;
+    }
+
+    public void setSelectionPickTo(String selectionPickTo) {
+        this.selectionPickTo = selectionPickTo;
+    }
 }

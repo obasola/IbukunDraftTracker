@@ -1,5 +1,6 @@
 import { RouteRecordRaw } from 'vue-router';
 import TeamComponent from '../components/TeamComponent.vue';
+import
 
 const routes: RouteRecordRaw[] = [
   {
@@ -8,6 +9,7 @@ const routes: RouteRecordRaw[] = [
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
       { path: '/teams', component: () => import('pages/TeamsPage.vue') },
+      { path: '/picks', component: () => import('pages/PicksPage.vue') },
     ],
   },
 

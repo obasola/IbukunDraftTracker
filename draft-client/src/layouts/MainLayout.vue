@@ -25,6 +25,17 @@
       <q-list>
         <q-item-label header> Essential Links </q-item-label>
 
+        <q-item href="https://quasar.dev">
+          <q-item-section>
+            <q-icon name="school" />
+          </q-item-section>
+
+          <q-item-section style="margin-left: -1.5em">
+            <q-item-label>Quasar Docs</q-item-label>
+            <q-item-label caption>Quasar Docs</q-item-label>
+          </q-item-section>
+        </q-item>
+
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -48,16 +59,16 @@ import EssentialLink, {
 
 const essentialLinks: EssentialLinkProps[] = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
-  },
-  {
     title: 'Teams',
     caption: 'nfl teams',
     icon: 'code',
     link: '/teams',
+  },
+  {
+    title: 'Picks',
+    caption: 'draft picks',
+    icon: 'code',
+    link: '/picks',
   },
   {
     title: 'Players',

@@ -21,10 +21,11 @@ public class PlayerDto implements Serializable {
     private  String homeCity;
     private  String homeState;
     private  String university;
+    private String position;
     private  PickDto selection;
 
     public PlayerDto() {}
-    public PlayerDto(Integer id, String firstName, String lastName, Integer age, Float height, Float weight, Float handSize, Float armLength, String homeCity, String homeState, String university, PickDto selection) {
+    public PlayerDto(Integer id, String firstName, String lastName, Integer age, Float height, Float weight, Float handSize, Float armLength, String homeCity, String homeState, String university, String position,  PickDto selection) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -36,6 +37,7 @@ public class PlayerDto implements Serializable {
         this.homeCity = homeCity;
         this.homeState = homeState;
         this.university = university;
+        this.position = position;
         this.selection = selection;
     }
 
@@ -91,6 +93,10 @@ public class PlayerDto implements Serializable {
         return selection;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -107,6 +113,7 @@ public class PlayerDto implements Serializable {
                 Objects.equals(this.homeCity, entity.homeCity) &&
                 Objects.equals(this.homeState, entity.homeState) &&
                 Objects.equals(this.university, entity.university) &&
+                Objects.equals(this.position, entity.position) &&
                 Objects.equals(this.selection, entity.selection);
     }
 
@@ -129,6 +136,7 @@ public class PlayerDto implements Serializable {
                 "homeCity = " + homeCity + ", " +
                 "homeState = " + homeState + ", " +
                 "university = " + university + ", " +
+                "position = " + position + ", " +
                 "selection = " + selection + ")";
     }
 }

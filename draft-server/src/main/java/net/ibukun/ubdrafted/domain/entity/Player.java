@@ -41,7 +41,8 @@ public class Player {
 
     @Column(name = "university", length = 75)
     private String university;
-
+    @Column(name = "position", length = 75)
+    private String position;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "selection_id")
     private Pick selection;
@@ -142,4 +143,11 @@ public class Player {
         this.selection = selection;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 }

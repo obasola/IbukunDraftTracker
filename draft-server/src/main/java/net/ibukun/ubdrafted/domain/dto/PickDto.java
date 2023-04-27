@@ -14,14 +14,24 @@ public class PickDto implements Serializable {
     private  TeamDto team;
     private  Integer selectionRound;
     private  Integer selectionNumber;
+    private String selectionYear;
+    private String selectionPickFrom;
+    private String selectionPickTo;
+
 
     public PickDto(){}
 
-    public PickDto(Integer id, TeamDto team, Integer selectionRound, Integer selectionNumber) {
+    public PickDto(Integer id, TeamDto team,
+                   Integer selectionRound, String selectionYear,
+                   String selectionPickFrom, String selectionPickTo,
+                   Integer selectionNumber) {
         this.id = id;
         this.team = team;
         this.selectionRound = selectionRound;
         this.selectionNumber = selectionNumber;
+        this.selectionYear = selectionYear;
+        this.selectionPickFrom = selectionPickFrom;
+        this.selectionPickTo = selectionPickTo;
     }
 
     public Integer getId() {
@@ -66,6 +76,9 @@ public class PickDto implements Serializable {
                 "id = " + id + ", " +
                 "team = " + team + ", " +
                 "selectionRound = " + selectionRound + ", " +
+                "selectionYear = " + selectionYear + ", " +
+                "selectionPickFrom = " + selectionPickFrom + ", " +
+                "selectionPickTo = " + selectionPickTo + ", " +
                 "selectionNumber = " + selectionNumber + ")";
     }
 }

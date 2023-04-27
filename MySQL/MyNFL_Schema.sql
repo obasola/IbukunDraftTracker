@@ -10,7 +10,7 @@ USE `MyNFL` ;
 CREATE TABLE IF NOT EXISTS `MyNFL`.`Team` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
-  `conference` VARCHAR(3) NOT NULL,
+  `conference` VARCHAR(35) NOT NULL,
   `city` VARCHAR(45) NULL,
   `state` VARCHAR(45) NULL,
   PRIMARY KEY (`id`))
@@ -20,11 +20,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `MyNFL`.`Pick`
 -- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS `MyNFL`.`Pick` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `team_id` INT NULL,
   `selection_round` INT NULL,
   `selection_number` INT NULL,
+  `selection_year` DATE NULL,
+  `selection_pick_from` VARCHAR(45) NULL,
+  `selection_pick_to` VARCHAR(45) NULL,  
   PRIMARY KEY (`id`),
   INDEX `fk_Team_Pick_idx` (`team_id` ASC) VISIBLE,
   CONSTRAINT `fk_Team_Pick`

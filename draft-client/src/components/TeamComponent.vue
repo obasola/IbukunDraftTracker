@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <p>Hard-code Title</p>
-  </div>
+  <q-page :style-fn="myTweak" padding>
+    <h2>Hard Coded Title</h2>
+  </q-page>
 </template>
 
 <script setup lang="ts">
