@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:8090")
+@CrossOrigin
 @RestController
 @RequestMapping("/api")
 public class TeamController {
 
     @Autowired
     TeamService service;
-
+    @CrossOrigin(origins = "http://localhost:9001")
     // Get All Team
     @GetMapping("/teams")
     public List<TeamDto> getAllTeams() {

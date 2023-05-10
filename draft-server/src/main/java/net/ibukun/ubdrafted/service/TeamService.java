@@ -7,6 +7,7 @@ import net.ibukun.ubdrafted.mapper.TeamMapper;
 import net.ibukun.ubdrafted.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ import java.util.Optional;
 public class TeamService {
     @Autowired
     private TeamRepository repository;
-
+    @CrossOrigin(origins = "http://localhost:9001")
     public List<TeamDto> getTeams() {
         List<TeamDto> modelList = new ArrayList<>();
         List<Team>  entities = repository.findAll();
@@ -27,6 +28,7 @@ public class TeamService {
         }
         return modelList;
     }
+    @CrossOrigin(origins = "http://localhost:9001")
     public int createTeam(TeamDto dto) {
         Optional<TeamDto> modelOptional = Optional.ofNullable(this.readTeamById(dto.getId().toString()));
         if(modelOptional.isPresent()) {
@@ -34,7 +36,7 @@ public class TeamService {
         }
         return saveTeam(dto);
     }
-
+    @CrossOrigin(origins = "http://localhost:9001")
     public TeamDto readTeamById(String id) throws ResourceNotFoundException {
         TeamDto model = new TeamDto();
 
@@ -49,6 +51,7 @@ public class TeamService {
         }
         return model;
     }
+    @CrossOrigin(origins = "http://localhost:9001")
     public int updateTeam(TeamDto teamDto) {
         return saveTeam(teamDto);
     }
@@ -60,6 +63,7 @@ public class TeamService {
         }
         repository.deleteById(id);
     }
+    @CrossOrigin(origins = "http://localhost:9001")
     @Transactional
     public int saveTeam(TeamDto teamDto) {
         Team instance =  new Team();

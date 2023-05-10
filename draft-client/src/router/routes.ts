@@ -1,6 +1,4 @@
 import { RouteRecordRaw } from 'vue-router';
-import TeamComponent from '../components/TeamComponent.vue';
-import
 
 const routes: RouteRecordRaw[] = [
   {
@@ -8,8 +6,28 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      { path: '/teams', component: () => import('pages/TeamsPage.vue') },
-      { path: '/picks', component: () => import('pages/PicksPage.vue') },
+      { path: '/teams', component: () => import('pages/team/TeamsPage.vue') },
+      { path: '/picks', component: () => import('pages/pick/PicksPage.vue') },
+      {
+        path: '/players',
+        component: () => import('pages/player/PlayersPage.vue'),
+      },
+      {
+        path: '/editTeam',
+        component: () => import('pages/team/EditTeamPage.vue'),
+      },
+      {
+        path: '/editPlayer',
+        component: () => import('pages/player/EditPlayerPage.vue'),
+      },
+      {
+        path: '/editPick',
+        component: () => import('pages/pick/EditPickPage.vue'),
+      },
+      {
+        path: '/editScore',
+        component: () => import('pages/score/EditScorePage.vue'),
+      },
     ],
   },
 
