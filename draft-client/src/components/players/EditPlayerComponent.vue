@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <h2>Edit Player Info</h2>
+    <h2>{title}</h2>
     <div class="q-pa-md" style="max-width: 400px">
       <q-form class="q-gutter-md">
         <q-select
@@ -50,8 +50,12 @@
 
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
+import { useRoute } from 'vue-router'
 import PlayerDataService from 'src/services/PlayerDataService';
 
+const route = useRoute();
+const title = route.params.title;
+console.log('title = ' + title);
 const playerService = new PlayerDataService();
 const teamOptionsList = [
   {
@@ -91,6 +95,12 @@ const playerinstance = reactive({
   state: '',
   conference: '',
 });
+
+if (param == 'add') {
+  title.value = 'New Player Info';
+} else {
+  title.value = 'Edit Player Info;'
+}
 // const submitted = ref<boolean>(true);
 
 function submit() {

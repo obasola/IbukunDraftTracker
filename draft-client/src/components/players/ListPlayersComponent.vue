@@ -8,6 +8,13 @@
         type="submit"
         color="primary"
       />
+      <q-btn
+        @click="newPlayer()"
+        label="Add Player"
+        type="submit"
+        color="secondary"
+      />
+
     </div>
     <div id="q-app" style="min-height: 100vh">
       <div class="q-pa-md">
@@ -39,6 +46,9 @@ onMounted(() => {
   getData();
 });
 
+function newPlayer() {
+  router.push({ path: '/editPlayer?title=add' });
+}
 async function getData() {
   //alert('getting data');
 
@@ -54,7 +64,7 @@ async function getData() {
     });
 }
 function editPlayer() {
-  router.push({ path: '/editPlayer' });
+  router.push({ path: '/editPlayer?title=upd' });
 }
 
 //const rows: QTableProps['rows'] = players;
