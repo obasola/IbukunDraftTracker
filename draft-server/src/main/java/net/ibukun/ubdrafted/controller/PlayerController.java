@@ -1,4 +1,4 @@
-package net.ibukun.idraft.player;
+package net.ibukun.ubdrafted.controller;
 
 import net.ibukun.ubdrafted.domain.dto.PlayerDto;
 import net.ibukun.ubdrafted.exception.ResourceNotFoundException;
@@ -40,9 +40,5 @@ public class PlayerController {
         service.savePlayer(model);
         return model;
     }
-    // Delete a Player
-    @DeleteMapping(path = "/delete/{id}")
-    public void deletePlayer(@PathVariable(value = "id") Integer id) {
-        service.deletePlayer(id );
-    }
+
 }

@@ -1,7 +1,5 @@
 package net.ibukun.ubdrafted.domain.entity;
 
-
-
 import javax.persistence.*;
 import java.util.Date;
 
@@ -17,20 +15,23 @@ public class Pick {
     @JoinColumn(name = "team_id")
     private Team team;
 
-    @Column(name = "selection_round")
+    @Column(name = "selectionRound")
     private Integer selectionRound;
 
-    @Column(name = "selection_number")
+    @Column(name = "selectionNumber")
     private Integer selectionNumber;
 
-    @Column(name = "selection_year")
+    @Column(name = "selectionYear")
     private String selectionYear;
 
-    @Column(name = "selection_pick_from")
+    @Column(name = "selectionPickFrom")
     private String selectionPickFrom;
 
-    @Column(name = "selection_pick_to")
+    @Column(name = "selectionPickTo")
     private String selectionPickTo;
+
+    @Column(name = "combineScore")
+    private String combineScore;
 
     public Integer getId() {
         return id;

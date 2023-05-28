@@ -1,6 +1,7 @@
 package net.ibukun.ubdrafted.domain.dto;
 
 
+import net.ibukun.ubdrafted.builder.PlayerBuilder;
 import net.ibukun.ubdrafted.domain.entity.Player;
 
 import java.io.Serializable;
@@ -25,6 +26,23 @@ public class PlayerDto implements Serializable {
     private  PickDto selection;
 
     public PlayerDto() {}
+
+    public PlayerDto(PlayerBuilder builder) {
+        this.id = builder.getId();
+        this.firstName = builder.getFirstName();
+        this.lastName = builder.getLastName();
+        this.age = builder.getAge();
+        this.height = builder.getHeight();
+        this.weight = builder.getWeight();
+        this.handSize = builder.getHandSize();
+        this.armLength = builder.getArmLength();
+        this.homeCity = builder.getHomeCity();
+        this.homeState = builder.getHomeState();
+        this.university = builder.getUniversity();
+        this.position = builder.getPosition();
+        this.selection = builder.getSelection();
+    }
+
     public PlayerDto(Integer id, String firstName, String lastName, Integer age, Float height, Float weight, Float handSize, Float armLength, String homeCity, String homeState, String university, String position,  PickDto selection) {
         this.id = id;
         this.firstName = firstName;

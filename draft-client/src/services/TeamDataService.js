@@ -1,6 +1,6 @@
 import axios from '../http-common';
-
 class TeamDataService {
+
   getAll() {
     return axios.get('/teams');
   }
@@ -10,18 +10,28 @@ class TeamDataService {
   }
 
   async create(data) {
+
     axios
       .post('http://localhost:3000/teams', data)
       .then((response) =>
-        console.log('data = ' + response.data.id).catch((error) => {
-          console.log(`Error: ${error.message}`);
-          console.error('There was an error!', error);
+        console.log('data = ' + response.data).catch((error) => {
+        console.error('There was an error!', error);
         })
       )
       .catch((error) => {
         console.log('There was an error!', error);
         console.log('Error: ' + error.message);
       });
+
+     // body: JSON.stringify(data) */
+    /*  body: {
+        name:   data.name,
+        city:   data.city,
+        state: data.state,
+        conference: data.conference
+      }*/
+   // })
+
 
     // data = await response.json();
   }

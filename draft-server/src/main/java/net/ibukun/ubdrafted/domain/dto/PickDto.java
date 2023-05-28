@@ -1,6 +1,7 @@
 package net.ibukun.ubdrafted.domain.dto;
 
 
+import net.ibukun.ubdrafted.builder.PickBuilder;
 import net.ibukun.ubdrafted.domain.entity.Pick;
 
 import java.io.Serializable;
@@ -18,9 +19,20 @@ public class PickDto implements Serializable {
     private String selectionPickFrom;
     private String selectionPickTo;
 
+    private Float combineScore;
 
     public PickDto(){}
 
+    public PickDto(PickBuilder builder) {
+        this.id = builder.getId();
+        this.team = builder.getTeam();
+        this.selectionRound = builder.getSelectionRound();
+        this.selectionNumber = builder.getSelectionNumber();
+        this.selectionYear = builder.getSelectionYear();
+        this.selectionPickFrom = builder.getSelectionPickFrom();
+        this.selectionPickTo = builder.getSelectionPickTo();
+        this.combineScore = builder.getCombineScore();
+    }
     public PickDto(Integer id, TeamDto team,
                    Integer selectionRound, String selectionYear,
                    String selectionPickFrom, String selectionPickTo,
@@ -52,6 +64,14 @@ public class PickDto implements Serializable {
 
     public Integer getSelectionNumber() {
         return selectionNumber;
+    }
+
+    public Float getCombineScore() {
+        return combineScore;
+    }
+
+    public void setCombineScore(Float combineScore) {
+        this.combineScore = combineScore;
     }
 
     @Override

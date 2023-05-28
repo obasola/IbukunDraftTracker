@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="JpaBuddyIdeaProjectConfig">
+  <component name="JpaBuddyIdeaProjectConfig" newRepositoryParent="org.springframework.data.jpa.repository.JpaRepository">
     <option name="defaultUnitInitialized" value="true" />
     <option name="renamerInitialized" value="true" />
+    <option name="reverseEngineeringLastDbConnectionId" value="9b9b18c2-d6fc-4209-ba27-61a1f2632107" />
+    <option name="newEntityIdType" value="Integer" />
+    <option name="newEntityIdStrategy" value="Identity" />
   </component>
 </project>

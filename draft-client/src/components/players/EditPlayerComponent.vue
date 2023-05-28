@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <h2>{title}</h2>
+    <h2>{{ param }}</h2>
     <div class="q-pa-md" style="max-width: 400px">
       <q-form class="q-gutter-md">
         <q-select
@@ -21,11 +21,15 @@
 
         <q-input v-model="playerinstance.state" type="text" label="State" />
 
-        <q-input
-          v-model="playerinstance.conference"
-          type="text"
-          label="Conference"
-        />
+        <q-select
+            filled
+            v-model="playerinstance.conference"
+            :options="conferenceList"
+            option-label="name"
+            option-value="value"
+            label="Conference"
+            style="width: 250px"
+          />
 
         <div>
           <q-btn
@@ -54,9 +58,45 @@ import { useRoute } from 'vue-router'
 import PlayerDataService from 'src/services/PlayerDataService';
 
 const route = useRoute();
-const title = route.params.title;
-console.log('title = ' + title);
+const param = ref(route.params.param);
+
+
+console.log('title = ' + route.params.param);
 const playerService = new PlayerDataService();
+const conferenceList = [
+  {
+    name: 'AFC East',
+    value: 'AFC East'
+  },
+  {
+    name: 'AFC West',
+    value: 'AFC West'
+  },
+  {
+    name: 'AFC North',
+    value: 'AFC North'
+  },
+  {
+    name: 'AFC South',
+    value: 'AFC South'
+  },
+  {
+    name: 'NFC East',
+    value: 'NFC East'
+  },
+  {
+    name: 'NFC West',
+    value: 'NFC West'
+  },
+  {
+    name: 'NFC North',
+    value: 'NFC North'
+  },
+  {
+    name: 'NFC South',
+    value: 'NFC South'
+  },
+];
 const teamOptionsList = [
   {
     id: 12,
@@ -96,10 +136,10 @@ const playerinstance = reactive({
   conference: '',
 });
 
-if (param == 'add') {
-  title.value = 'New Player Info';
+if (param.value === 'add') {
+  param.value  = 'New Player Info';
 } else {
-  title.value = 'Edit Player Info;'
+  param.value = 'Edit Player Info';
 }
 // const submitted = ref<boolean>(true);
 

@@ -8,6 +8,12 @@
         type="submit"
         color="primary"
       />
+      <q-btn
+        v-on:click="addPick()"
+        label="Add Pick"
+        type="submit"
+        color="primary"
+      />
     </div>
     <div id="q-app" style="min-height: 100vh">
       <div class="q-pa-md">
@@ -30,6 +36,7 @@ import Pick from 'src/domain/domainInterfaces';
 
 import axios from 'axios';
 import { QTableProps } from 'quasar';
+import { route } from 'quasar/wrappers';
 
 const router = useRouter();
 
@@ -39,6 +46,9 @@ onMounted(() => {
   getData();
 });
 
+function addPick() {
+  router.push({path: '/editPick?param=add'} )
+}
 async function getData() {
   //alert('getting data');
 

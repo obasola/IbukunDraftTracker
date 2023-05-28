@@ -1,7 +1,5 @@
 package net.ibukun.ubdrafted.domain.entity;
 
-
-
 import javax.persistence.*;
 
 @Entity
@@ -12,22 +10,22 @@ public class CombineScore {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "forty_time")
+    @Column(name = "fortyTime")
     private Float fortyTime;
 
-    @Column(name = "ten_yard_split")
+    @Column(name = "tenYardSplit")
     private Float tenYardSplit;
 
     @Column(name = "twenty_yard_shuttle")
     private Float twentyYardShuttle;
 
-    @Column(name = "three_cone")
+    @Column(name = "threeCone")
     private Float threeCone;
 
-    @Column(name = "vertical_leap")
+    @Column(name = "verticalLeap")
     private Float verticalLeap;
 
-    @Column(name = "broadjump")
+    @Column(name = "broadJump")
     private Float broadjump;
 
     @ManyToOne(fetch = FetchType.LAZY)

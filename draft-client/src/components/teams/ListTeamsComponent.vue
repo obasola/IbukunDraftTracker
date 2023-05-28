@@ -8,6 +8,12 @@
         type="submit"
         color="primary"
       />
+      <q-btn
+          @click="newTeam()"
+          label="Add Team"
+          type="submit"
+          color="secondary"
+        />
     </div>
     <div id="q-app" style="min-height: 100vh">
       <div class="q-pa-md">
@@ -16,6 +22,7 @@
           title="Teams"
           :rows="teams"
           :columns="columns"
+          v-model:selected="selectedRow"
           row-key="id"
         ></q-table>
       </div>
@@ -29,6 +36,8 @@ import { ref, onMounted } from 'vue';
 
 import axios from 'axios';
 import { QTableProps } from 'quasar';
+
+const selectedRow = ref([]);
 
 const router = useRouter();
 export interface Team {
@@ -45,6 +54,10 @@ onMounted(() => {
   getData();
 });
 
+function newTeam() {
+  router.push({ path: '/editTeam?param=add' });
+}
+
 async function getData() {
   //alert('getting data');
 
@@ -60,6 +73,7 @@ async function getData() {
     });
 }
 function editTeam() {
+  console.log('selection = '+selectedRow.value)
   router.push({ path: '/editTeam' });
 }
 

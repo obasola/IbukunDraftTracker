@@ -4,3 +4,4 @@ export * from './team-controller.controller';
 export * from './pick-controller.controller';
 export * from './player-controller.controller';
 export * from './combine-score-controller.controller';
+export * from './schedule.controller';

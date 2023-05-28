@@ -3,3 +3,4 @@ export * from './pick.model';
 export * from './player.model';
 export * from './team.model';
 
+export * from './schedule.model';

@@ -27,6 +27,12 @@ export class Team extends Entity {
   })
   state: string;
 
+  @property({
+    type: 'string',
+    required: true,
+  })
+  conference: string;
+
   @hasMany(() => Pick)
   picks?: Pick[]
 

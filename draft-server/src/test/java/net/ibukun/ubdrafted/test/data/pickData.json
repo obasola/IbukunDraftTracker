@@ -1,0 +1,12 @@
+
+{
+  teams:[
+    {id: 1, teamId: 11, selectionRound: 1, selectionNumber: 31, combineScore: 6.34, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"},
+    {id: 2, teamId: 11, selectionRound: 2, selectionNumber: 55, combineScore: 6.00, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"},
+    {id: 3, teamId: 11, selectionRound: 3, selectionNumber: 92, combineScore: 6.00, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"},
+    {id: 4, teamId: 11, selectionRound: 4, selectionNumber: 119, combineScore: 5.86, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"},
+    {id: 5, teamId: 11, selectionRound: 5, selectionNumber: 166, combineScore: 5.68, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"},
+    {id: 6, teamId: 11, selectionRound: 6, selectionNumber: 194, combineScore: 6.10, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"},
+    {id: 7, teamId: 11, selectionRound: 7, selectionNumber: 250, combineScore: 5.84, selectionYear: "2023", teamName: "Kansas City Chiefs", teamCity: "Kansas City", conference: "AFC West"}
+  ]
+}

@@ -8,6 +8,11 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.awt.print.Book;
+import java.util.List;
+import java.util.Optional;
 
 public interface TeamRepository extends JpaRepository<Team, Integer> {
+    List<Team> findByNameEqualsIgnoreCase(String teamName);
+
+    List<Team> findByConferenceEqualsIgnoreCase(String conference);
 }

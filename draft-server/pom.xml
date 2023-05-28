@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>18</java.version>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,6 +70,37 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.7.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.platform</groupId>
+			<artifactId>junit-platform-runner</artifactId>
+			<version> 1.1.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- For JUnit5 -->
+		<dependency>
+			<groupId>io.hosuaby</groupId>
+			<artifactId>inject-resources-junit-jupiter</artifactId>
+			<version>0.3.2</version>
+		</dependency>
+
+		<!-- or for JUnit4 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.mysql</groupId>

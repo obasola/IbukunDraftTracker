@@ -47,7 +47,7 @@ onMounted(() => {
 });
 
 function newPlayer() {
-  router.push({ path: '/editPlayer?title=add' });
+  router.push({ path: '/editPlayer?param=add' });
 }
 async function getData() {
   //alert('getting data');
@@ -64,7 +64,7 @@ async function getData() {
     });
 }
 function editPlayer() {
-  router.push({ path: '/editPlayer?title=upd' });
+  router.push({ path: '/editPlayer?param=upd' });
 }
 
 //const rows: QTableProps['rows'] = players;

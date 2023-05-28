@@ -36,14 +36,8 @@ public class CombineScoreController {
     @PutMapping("/chgScore/{id}")
     public CombineScoreDto updateCombineScore(@PathVariable(value = "id") Integer scoreId,
                            @Valid @RequestBody CombineScoreDto model)  throws Exception {
-
        service.saveCombineScore(model);
         return model;
     }
-    // Delete a CombineScore
-    @DeleteMapping(path = "/delete/{id}")
-    public void deleteCombineScore(@PathVariable(value = "id") Integer id) {
 
-        service.deleteCombineScore(id );
-    }
 }

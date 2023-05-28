@@ -17,6 +17,7 @@ import java.util.Optional;
 public class TeamService {
     @Autowired
     private TeamRepository repository;
+
     @CrossOrigin(origins = "http://localhost:9001")
     public List<TeamDto> getTeams() {
         List<TeamDto> modelList = new ArrayList<>();
@@ -30,7 +31,7 @@ public class TeamService {
     }
     @CrossOrigin(origins = "http://localhost:9001")
     public int createTeam(TeamDto dto) {
-        Optional<TeamDto> modelOptional = Optional.ofNullable(this.readTeamById(dto.getId().toString()));
+        TeamDto dto =this.readTeamByName(dto.getId().toString()));
         if(modelOptional.isPresent()) {
             throw new IllegalStateException("Team already on file");
         }
@@ -51,6 +52,38 @@ public class TeamService {
         }
         return model;
     }
+    @CrossOrigin(origins = "http://localhost:9001")
+    public TeamDto readTeamByName(String name) throws ResourceNotFoundException {
+        TeamDto model = new TeamDto();
+
+        Team instance = null;
+        List<Team> entityList = repository.findByNameEqualsIgnoreCase(name);
+
+        if(!entityList.isEmpty()) {
+            instance = entityList.get(0);
+            mapModel(model, instance);
+        }else{
+            throw new ResourceNotFoundException("Team", "Name", name);
+        }
+        return model;
+    }
+
+    @CrossOrigin(origins = "http://localhost:9001")
+    public List<TeamDto> readTeamByConference(String conf) throws ResourceNotFoundException {
+        TeamDto model = null;
+
+        List<TeamDto> teamDtoList = new ArrayList<>();
+        List<Team> teams        = repository.findByConferenceEqualsIgnoreCase(conf);
+
+        for(Team team : teams) {
+            model = new TeamDto();
+            mapModel(model,team);
+            teamDtoList.add(model);
+        }
+
+        return teamDtoList;
+    }
+
     @CrossOrigin(origins = "http://localhost:9001")
     public int updateTeam(TeamDto teamDto) {
         return saveTeam(teamDto);

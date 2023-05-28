@@ -13,14 +13,14 @@ public class Team {
     @Column(name = "name", nullable = false, length = 45)
     private String name;
 
-    @Column(name = "conference", nullable = false, length = 3)
-    private String conference;
-
     @Column(name = "city", length = 45)
     private String city;
 
     @Column(name = "state", length = 45)
     private String state;
+
+    @Column(name = "conference", nullable = false, length = 3)
+    private String conference;
 
     public Integer getId() {
         return id;

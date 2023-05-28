@@ -1,4 +1,4 @@
-package net.ibukun.idraft.team;
+package net.ibukun.ubdrafted.controller;
 
 import net.ibukun.ubdrafted.domain.dto.TeamDto;
 import net.ibukun.ubdrafted.domain.entity.Team;
@@ -27,7 +27,7 @@ public class TeamController {
     // Create a new Team
     @PostMapping("/addTeam")
     public TeamDto createTeam(@Valid @RequestBody TeamDto team) {
-        TeamDto teamDto = service.readTeamById(Integer.toString(team.getId()));
+        TeamDto teamDto = service.readTeamByName(Integer.toString(team.getId()));
         if(teamDto == null) {
             int teamId  =  service.saveTeam(team);
             teamDto = service.readTeamById(Integer.toString(teamId));
@@ -47,9 +47,5 @@ public class TeamController {
         service.saveTeam(model);
         return model;
     }
-    // Delete a Team
-    @DeleteMapping(path = "/delete/{id}")
-    public void deleteTeam(@PathVariable(value = "id") Integer id) {
-        service.deleteTeam(id );
-    }
+
 }

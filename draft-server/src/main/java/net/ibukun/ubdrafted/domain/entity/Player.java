@@ -1,7 +1,5 @@
 package net.ibukun.ubdrafted.domain.entity;
 
-
-
 import javax.persistence.*;
 
 @Entity
@@ -12,10 +10,10 @@ public class Player {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "first_name", nullable = false, length = 45)
+    @Column(name = "firstName", nullable = false, length = 45)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, length = 45)
+    @Column(name = "lastName", nullable = false, length = 45)
     private String lastName;
 
     @Column(name = "age", nullable = false)
@@ -27,22 +25,24 @@ public class Player {
     @Column(name = "weight")
     private Float weight;
 
-    @Column(name = "hand_size")
+    @Column(name = "handSize")
     private Float handSize;
 
-    @Column(name = "arm_length")
+    @Column(name = "armLength")
     private Float armLength;
 
-    @Column(name = "home_city", length = 45)
+    @Column(name = "homeCity", length = 45)
     private String homeCity;
 
-    @Column(name = "home_state", length = 45)
+    @Column(name = "homeState", length = 45)
     private String homeState;
 
     @Column(name = "university", length = 75)
     private String university;
+
     @Column(name = "position", length = 75)
     private String position;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "selection_id")
     private Pick selection;

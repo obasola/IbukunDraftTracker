@@ -1,4 +1,4 @@
-package net.ibukun.draftserver;
+package net.ibukun.ubdrafted.test;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
