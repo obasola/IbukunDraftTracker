@@ -16,7 +16,7 @@ public class CombineScore {
     @Column(name = "tenYardSplit")
     private Float tenYardSplit;
 
-    @Column(name = "twenty_yard_shuttle")
+    @Column(name = "twentyYardShuttle")
     private Float twentyYardShuttle;
 
     @Column(name = "threeCone")
@@ -29,7 +29,7 @@ public class CombineScore {
     private Float broadjump;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "player_id")
+    @JoinColumn(name = "playerId")
     private Player player;
 
     public Integer getId() {

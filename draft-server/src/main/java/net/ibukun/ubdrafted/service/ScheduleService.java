@@ -4,10 +4,12 @@ import net.ibukun.ubdrafted.domain.dto.ScheduleDto;
 import net.ibukun.ubdrafted.domain.dto.ScheduleDto;
 import net.ibukun.ubdrafted.domain.entity.Schedule;
 import net.ibukun.ubdrafted.domain.entity.Schedule;
+import net.ibukun.ubdrafted.domain.entity.Team;
 import net.ibukun.ubdrafted.exception.ResourceNotFoundException;
 import net.ibukun.ubdrafted.mapper.ScheduleMapper;
 import net.ibukun.ubdrafted.mapper.ScheduleMapper;
 import net.ibukun.ubdrafted.repository.ScheduleRepository;
+import net.ibukun.ubdrafted.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +22,9 @@ import java.util.Optional;
 public class ScheduleService {
     @Autowired
     private ScheduleRepository repository;
+
+    @Autowired
+    private TeamRepository teamRepository;
     @CrossOrigin(origins = "http://localhost:9001")
     public List<ScheduleDto> getSchedules() {
         List<ScheduleDto> modelList = new ArrayList<>();
@@ -32,11 +37,34 @@ public class ScheduleService {
         return modelList;
     }
     @CrossOrigin(origins = "http://localhost:9001")
-    public int createSchedule(ScheduleDto dto) {
-        Optional<ScheduleDto> modelOptional = Optional.ofNullable(this.readScheduleById(dto.getId().toString()));
-        if(modelOptional.isPresent()) {
-            throw new IllegalStateException("Schedule already on file");
+    public int createSchedule(ScheduleDto dto) throws Exception {
+        List<Schedule> list = repository.findByTeamId(dto.getTeamId());
+        if(list != null && !list.isEmpty()) {
+            boolean isfound = false;
+            for(Schedule schedule : list) {
+                if(schedule.getScheduleWeek().equals(dto.getScheduleWeek())) {
+                    throw new Exception("Scueduled week on file");
+                }
+            }
         }
+        List<Schedule> scheduleList = repository.findByTeamId(dto.getOpponentId());
+        Optional<Team> teamOptional = teamRepository.findById(dto.getOpponentId());
+        Team teamEntity = teamOptional.get();
+        if(scheduleList != null && !scheduleList.isEmpty()) {
+            for(Schedule schedule : scheduleList) {
+                if(schedule.getScheduleWeek() == null) {
+                    schedule.setScheduleWeek(dto.getScheduleWeek());
+                    schedule.setGameCity(dto.getGameCity());
+                    schedule.setGameCountry(dto.getGameCountry());
+                    schedule.setOpponentConference(teamEntity.getConference());
+                    schedule.setGameLocation(dto.getGameLocation());
+                    ScheduleDto modelDto = new ScheduleDto();
+                    ScheduleMapper.mapToModel(modelDto,schedule);
+                    saveSchedule(modelDto);
+                }
+            }
+        }
+
         return saveSchedule(dto);
     }
     @CrossOrigin(origins = "http://localhost:9001")
@@ -54,6 +82,7 @@ public class ScheduleService {
         }
         return model;
     }
+
     @CrossOrigin(origins = "http://localhost:9001")
     public int updateSchedule(ScheduleDto ScheduleDto) {
         return saveSchedule(ScheduleDto);

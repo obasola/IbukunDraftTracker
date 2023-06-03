@@ -44,7 +44,7 @@ public class Player {
     private String position;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "selection_id")
+    @JoinColumn(name = "pickId")
     private Pick selection;
 
     public Integer getId() {

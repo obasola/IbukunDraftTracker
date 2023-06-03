@@ -31,11 +31,13 @@ public class TeamService {
     }
     @CrossOrigin(origins = "http://localhost:9001")
     public int createTeam(TeamDto dto) {
-        TeamDto dto =this.readTeamByName(dto.getId().toString()));
-        if(modelOptional.isPresent()) {
+       TeamDto instance =
+               this.readTeamByName(dto.getId().toString());
+        if(instance == null) {
             throw new IllegalStateException("Team already on file");
         }
         return saveTeam(dto);
+
     }
     @CrossOrigin(origins = "http://localhost:9001")
     public TeamDto readTeamById(String id) throws ResourceNotFoundException {
@@ -86,6 +88,7 @@ public class TeamService {
 
     @CrossOrigin(origins = "http://localhost:9001")
     public int updateTeam(TeamDto teamDto) {
+
         return saveTeam(teamDto);
     }
     @Transactional

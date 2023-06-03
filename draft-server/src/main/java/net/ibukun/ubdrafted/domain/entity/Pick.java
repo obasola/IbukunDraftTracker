@@ -12,7 +12,7 @@ public class Pick {
     private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id")
+    @JoinColumn(name = "teamId")
     private Team team;
 
     @Column(name = "selectionRound")
