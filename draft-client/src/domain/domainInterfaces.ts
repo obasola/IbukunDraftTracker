@@ -44,7 +44,7 @@ export default interface CombineScore {
 export default interface Schedule {
   id: number;
   teamID: number;
-  oponentId: number;
+  opponentId: number;
   scheduleWeek: number;
   gameDate: Date;
   gameCity: string;
